@@ -30,12 +30,5 @@ jobs:
      # run: curl localhost:8080
     - name: Run Unit Test
       run: mvn -B test
-    - uses: actions/checkout@v1
-    - name: Upload artifacts
-    - run: mkdir -p art_uploadsReny
-    - run: echo hello > art_uploadsReny/world.txt
-    - uses: actions/upload-artifact@v1
-      with:
-        name: my-artifact
-        path: art_uploadsReny
+   
       
