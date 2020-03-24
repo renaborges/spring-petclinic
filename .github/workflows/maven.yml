@@ -24,6 +24,8 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Run Program
       run: java -jar target/*.jar &
+    - name: Sleep command
+      run: sleep 90
     - name: Test endpoint
       run: curl localhost:8080
     #- name: Run Unit Test
