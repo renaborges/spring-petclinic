@@ -30,5 +30,10 @@ jobs:
      # run: curl localhost:8080
     - name: Run Unit Test
       run: mvn -B test
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: spring-petclinic
+        path: target/surefire-reports
    
       
