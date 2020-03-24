@@ -41,5 +41,8 @@ jobs:
       with:
         name: spring-petclinic
         path: target/surefire-reports
+        
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-docker-image:$(date +%s)  
    
       
