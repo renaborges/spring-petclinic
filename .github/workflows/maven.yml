@@ -22,11 +22,20 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Run Program
-      run: java -jar target/*.jar &
-    - name: Sleep command
-      run: sleep 90
-    - name: Test endpoint
-      run: curl localhost:8080
-    #- name: Run Unit Test
-      #run: mvn -B test
+    #- name: Run Program
+      #run: java -jar target/*.jar &
+    #- name: Sleep command
+      #run: sleep 90
+    #- name: Test endpoint
+     # run: curl localhost:8080
+    - name: Run Unit Test
+      run: mvn -B test
+    - uses: actions/checkout@v1
+    - name: Upload artifacts
+    - run: mkdir -p art_uploadsReny
+    - run: echo hello > art_uploadsReny/world.txt
+    - uses: actions/upload-artifact@v1
+      with:
+        name: my-artifact
+        path: art_uploadsReny
+      
