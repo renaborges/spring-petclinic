@@ -46,6 +46,7 @@ jobs:
       run: docker build . --file Dockerfile --tag maven:$(date +%s)  
       
     - name: Run Docker
-      run: docker run -dv maven:latest
+     # run: docker run -dv maven:latest
+      run: docker run -p 8000:8080 -d maven:latest
    
       
