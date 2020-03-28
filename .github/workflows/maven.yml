@@ -47,6 +47,24 @@ jobs:
       
     - name: Run Docker
      # run: docker run -dv maven:latest
-      run: docker run -p 8000:8080 -d petclinic:latest
-   
+      run: docker run -p 8000:8080 -t --name petclinic petclinic:latest
       
+    - name: Copy artifact from docker image
+      run: docker cp petclinic:/app/target/surefire-reports .
+      
+    - name: Upload/Save artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: spring-petclinic-artifact
+        path: surefire-reports
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
