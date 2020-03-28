@@ -42,7 +42,7 @@ jobs:
         #name: spring-petclinic
         #path: target/surefire-reports
         
-    - name: Build the Docker image
+    - name: Build the Docker image (the dot means build the image in the current directory)
       run: docker build . --file Dockerfile --tag petclinic:latest 
       
     - name: Run Docker
