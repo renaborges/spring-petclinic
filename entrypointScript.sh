@@ -1,9 +1,12 @@
 #!/bin/bash
 
-#Make jar file executable for root inside the container
-chmod 755 target/spring-petclinic-2.2.0.BUILD-SNAPSHOT.jar
+#Run Maven Build inside container
+run: mvn -B package --file pom.xml
 
-java -jar /app/target/spring-petclinic-2.2.0.BUILD-SNAPSHOT.jar &
+#Make jar file executable for root inside the container
+chmod 755 target/*.jar
+
+java -jar /app/target/*.jar &
 
 sleep 90
 
